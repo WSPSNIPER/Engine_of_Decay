@@ -23,6 +23,8 @@ public:
     bool open();
 
     void close();
+
+    sf::RenderWindow& window()  { return m_window; }
 private:
     sf::RenderWindow    m_window;
     sf::Vector2u        m_size;

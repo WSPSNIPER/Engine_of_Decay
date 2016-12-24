@@ -1,21 +1,22 @@
 #include "Window.h"
 #include "TextureManager.h"
+
+
+#include "GameManager.h"
+#include "TestState.h"
 int main()
 {
+    GameManager game;
 
-    Window win("Lukes Shit", 800, 600);
-    sf::Sprite image;
-    image.setTexture(getTexture("test.png"));
+    TestState* state = new TestState;
 
-    while(win.open())
-    {
-        win.clear();
+    game.addState(state);
 
-        win.draw(image);
-        // draw
-        win.display();
+    game.run();
 
-        win.handleEvents();
-    }
+    if(state)
+        delete state;
+
+
     return 0;
 }
